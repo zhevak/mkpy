@@ -1,21 +1,20 @@
 #!/usr/bin/env python3
 
 
-'''
-@file    mkpy-0.2.5
-@brief   Утилита создает шаблон питоновского файла с именем, заданным
-         пользователем, в текущем директории.
-@version 0.2.5
-@date    2020.02.04
+"""
+Утилита создает шаблон питоновского файла с именем, заданным пользователем, в текущем директории.
+
+@file    mkpy-0.2.6
+@version 0.2.6
+@date    2020.07.27
 @author  Жевак Александр
 @email   zhevak@mail.ru
-'''
+"""
 
 
 import os
 import pwd
 import sys
-import argparse
 from datetime import datetime
 
 EMAIL = u'zhevak@mail.ru'
@@ -51,7 +50,11 @@ HELP = '''Генератор шаблонов Python-овских модулей
 '''
 
 
+VERSION = '''mkpy version 0.2.6 from 2020.07.27'''
+
+
 def get_user_info():
+    """Возвращает информацию о пользователе."""
     login = os.getlogin()
     info = pwd.getpwnam(login)
     gecos = info.pw_gecos.split(',')
@@ -62,6 +65,7 @@ def get_user_info():
 
 
 def make_py(module):
+    """Создаёт питоновский файл и заполняет его шаблоном."""
     if not module.lower().endswith('.py'):
         filename = module + '.py'
     else:
@@ -81,22 +85,19 @@ def make_py(module):
     }
 
     # Создадим файл и запишем в него шаблон
-    with open(filename, 'w') as f:
-        f.write(FILE_TEMPLATE.format(**params))
+    with open(filename, 'w') as pyfile:
+        pyfile.write(FILE_TEMPLATE.format(**params))
 
     # Сделаем файл исполняемым
     os.chmod(filename, 0o755)
 
 
-def show_help():
-    print('Используйте: mkpy <имя модуля>')
-
-
 if __name__ == '__main__':
-
+    """Главная функция. Отсюда запускается программа."""
     if (len(sys.argv) == 1) or ('-h' in sys.argv) or ('--help' in sys.argv):
         print(HELP)
+    elif ('-v' in sys.argv) or ('--version' in sys.argv):
+        print(VERSION)
     else:
         for arg in sys.argv[1:]:
             make_py(arg)
-
