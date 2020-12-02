@@ -17,7 +17,7 @@ import pwd
 import sys
 from datetime import datetime
 
-EMAIL = u'zhevak@mail.ru'
+EMAIL = 'zhevak@mail.ru'
 
 FILE_TEMPLATE = '''#!/usr/bin/env python3
 
@@ -50,7 +50,7 @@ HELP = '''Генератор шаблонов Python-овских модулей
 '''
 
 
-VERSION = '''mkpy version 0.2.6 from 2020.07.27'''
+VERSION = 'mkpy version 0.2.7 from 2020.12.02'
 
 
 def get_user_info():
