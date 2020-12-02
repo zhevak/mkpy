@@ -4,9 +4,9 @@
 """
 Утилита создает шаблон питоновского файла с именем, заданным пользователем, в текущем директории.
 
-@file    mkpy-0.2.6
-@version 0.2.6
-@date    2020.07.27
+@file    mkpy-0.2.7
+@version 0.2.7
+@date    2020.12.02
 @author  Жевак Александр
 @email   zhevak@mail.ru
 """
@@ -19,10 +19,10 @@ from datetime import datetime
 
 EMAIL = u'zhevak@mail.ru'
 
-FILE_TEMPLATE = """#!/usr/bin/env python3
+FILE_TEMPLATE = '''#!/usr/bin/env python3
 
 
-'''
+"""
 @module  {module}
 @version <укажите версию>
 @date    {date}
@@ -30,13 +30,13 @@ FILE_TEMPLATE = """#!/usr/bin/env python3
 @email   {email}
 
 @brief   <вставьте сюда краткое описание модуля>
-'''
+"""
 
 
 if __name__ == "__main__":
 
     pass
-"""
+'''
 
 
 HELP = '''Генератор шаблонов Python-овских модулей.
