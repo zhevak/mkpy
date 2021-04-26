@@ -4,9 +4,9 @@
 """
 Утилита создает шаблон питоновского файла с именем, заданным пользователем, в текущем директории.
 
-@file    mkpy-0.2.7
-@version 0.2.7
-@date    2020.12.02
+@file    mkpy-0.2.8
+@version 0.2.8
+@date    2021.04.26
 @author  Жевак Александр
 @email   zhevak@mail.ru
 """
@@ -17,24 +17,22 @@ import pwd
 import sys
 from datetime import datetime
 
-EMAIL = 'zhevak@mail.ru'
+EMAIL = u'zhevak@mail.ru'
 
 FILE_TEMPLATE = '''#!/usr/bin/env python3
 
-
 """
 @module  {module}
-@version <укажите версию>
+@version Укажите версию>
 @date    {date}
 @author  {author}
 @email   {email}
 
-@brief   <вставьте сюда краткое описание модуля>
+@brief   Вставьте сюда краткое описание модуля
 """
 
 
 if __name__ == "__main__":
-
     pass
 '''
 
@@ -50,12 +48,14 @@ HELP = '''Генератор шаблонов Python-овских модулей
 '''
 
 
-VERSION = 'mkpy version 0.2.7 from 2020.12.02'
+VERSION = '''mkpy version 0.2.8 from 2021.04.26'''
 
 
 def get_user_info():
     """Возвращает информацию о пользователе."""
-    login = os.getlogin()
+
+    # login = os.getlogin()
+    login = pwd.getpwuid(os.geteuid()).pw_name
     info = pwd.getpwnam(login)
     gecos = info.pw_gecos.split(',')
 
