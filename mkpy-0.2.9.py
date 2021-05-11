@@ -4,9 +4,9 @@
 """
 Утилита создает шаблон питоновского файла с именем, заданным пользователем, в текущем директории.
 
-@file    mkpy-0.2.8
-@version 0.2.8
-@date    2021.04.26
+@file    mkpy-0.2.9
+@version 0.2.9
+@date    2021.05.11
 @author  Жевак Александр
 @email   zhevak@mail.ru
 """
@@ -23,7 +23,7 @@ FILE_TEMPLATE = '''#!/usr/bin/env python3
 
 """
 @module  {module}
-@version Укажите версию>
+@version Укажите версию
 @date    {date}
 @author  {author}
 @email   {email}
@@ -48,7 +48,7 @@ HELP = '''Генератор шаблонов Python-овских модулей
 '''
 
 
-VERSION = '''mkpy version 0.2.8 from 2021.04.26'''
+VERSION = '''mkpy version 0.2.9 from 2021.05.11'''
 
 
 def get_user_info():

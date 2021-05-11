@@ -9,5 +9,5 @@
 
 #rm /usr/bin/mkpy*
 #rm /etc/alternatives/mkpy*
-cp mkpy-0.2.8.py /usr/bin/
-update-alternatives --install /usr/bin/mkpy mkpy /usr/bin/mkpy-0.2.8.py 5
+cp mkpy-0.2.9.py /usr/bin/
+update-alternatives --install /usr/bin/mkpy mkpy /usr/bin/mkpy-0.2.9.py 6
